@@ -1,7 +1,7 @@
 
 import { Button, Container, Nav, Navbar, Form, FormControl } from 'react-bootstrap'
 
-export const Navigation = () => {
+export const Navigation = ({ loggedin, handleLogout }) => {
 
     return (
       <div>
@@ -19,10 +19,15 @@ export const Navigation = () => {
             </Form>
             </Nav>
             <Nav>
-            <Nav.Link href="login">Login</Nav.Link>
-            <Nav.Link eventKey={2} href="#Register">
-                Register
-            </Nav.Link>
+            {loggedin ? 
+              <>
+                <Nav.Link onClick={handleLogout}>Logout</Nav.Link> 
+                <Nav.Link eventKey={2} href="profile">Account</Nav.Link> 
+                </>: 
+              <>
+                <Nav.Link href="login">Login</Nav.Link>
+                <Nav.Link eventKey={2} href="register">Register</Nav.Link> 
+                </>}
             </Nav>
         </Navbar.Collapse>
         </Container>

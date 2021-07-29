@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Form, Button } from "react-bootstrap"
 import { useHistory } from "react-router-dom"
+// const RAILS_API = 'http://localhost:3000/'
 
 export const Login = ({ setUser, setLoggedIn }) => {
   const [email, setEmail] = useState("")
@@ -14,7 +15,6 @@ export const Login = ({ setUser, setLoggedIn }) => {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    // Send Login request to our backend
     const loginObj = {
       method: "POST",
       headers: {
@@ -25,33 +25,32 @@ export const Login = ({ setUser, setLoggedIn }) => {
         password,
       }),
     }
-    fetch("/login", loginObj)
+    fetch("login", loginObj)
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
         if (!!data.id) {
-          // set the current user to some higher state
+          console.log("SUCCCCCEEEESSSS")
           setUser(data)
           setLoggedIn(true)
-          history.push("/profile")
+          history.push("/")
         } 
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.log("error =", err))
   }
 
-  // console.log(email, password)
   return (
     <div className='login-form'>
       <h1>Welcome Back!</h1>
       <Form onSubmit={handleLogin}>
-        <Form.Group className='mb-4' controlId='formBasicEmail'>
+        <Form.Group className='mb-4' controlId='formBa  cEmail'>
           <Form.Label>Email address</Form.Label>
           <Form.Control
             type='email'
             placeholder='Enter email'
             onChange={handleChange}
             name='email'
-            value={email}
+            value={email} 
           />
         </Form.Group>
 
