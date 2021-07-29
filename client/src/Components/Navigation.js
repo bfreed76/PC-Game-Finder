@@ -1,6 +1,5 @@
 
 import { Button, Container, Nav, Navbar, Form, FormControl } from 'react-bootstrap'
-import React, { useState } from 'react'
 
 export const Navigation = () => {
 
@@ -8,7 +7,7 @@ export const Navigation = () => {
       <div>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-        <Navbar.Brand href="#home">PC GameFinder</Navbar.Brand>
+        <Navbar.Brand href="/">PC GameFinder</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -20,7 +19,7 @@ export const Navigation = () => {
             </Form>
             </Nav>
             <Nav>
-            <Nav.Link href="#signIn">Sign in</Nav.Link>
+            <Nav.Link href="login">Login</Nav.Link>
             <Nav.Link eventKey={2} href="#Register">
                 Register
             </Nav.Link>
