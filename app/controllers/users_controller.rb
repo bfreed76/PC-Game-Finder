@@ -30,11 +30,15 @@ class UsersController < ApplicationController
     end
 
     def user_alerts
-        
+        user = User.find(params[:user_id])
+        alerts = user.alerts
+        render json: alerts, include: :user
     end
 
     def user_games
-
+        user = User.find(params[:user_id])
+        games = user.games
+        render json: games, include: :user
     end
 
     private

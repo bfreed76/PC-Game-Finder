@@ -1,7 +1,7 @@
 
 import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom'
 import { Home } from './Components/Home'
-import { Alerts } from './Components/Alerts'
+import { AlertsContainer } from './Components/AlertsContainer'
 import { Deals } from './Components/Deals'
 import { Login } from './Components/Login'
 import { Register } from './Components/Register'
@@ -29,7 +29,6 @@ function App() {
         if (!data.error) {
           setUser(data)
           setLoggedin(true)
-          // history.push("/")
         }
       }
     )
@@ -56,17 +55,17 @@ function App() {
               <Navigation loggedin={loggedin} handleLogout={handleLogout}/>
               <Switch>
                 <Route exact path ="/" component={Home} />
-                <Route exact path ="/alerts" component={Alerts} />
+                <Route exact path ="/alerts" component={AlertsContainer} />
                 <Route exact path ="/deals" component={Deals} />
                 <Route exact path ="/login">
                   <Login setUser={setUser} setLoggedIn={setLoggedin} />
-                 </Route>
+                </Route>
                 <Route exact path ="/register">
                   <Register setUser={setUser} setLoggedin={setLoggedin} />  
-                 </Route>
-                <Route exact path ="/profile" findMe={findMe} setLoggedin>
-                  <Profile />
-                  </Route>
+                </Route>
+                <Route exact path ="/profile"> 
+                  {Object.keys(user).length > 1 ? <Profile user={user} setLoggedin={setLoggedin} /> : <Login setUser={setUser} setLoggedIn={setLoggedin} /> }
+                </Route> 
                 <Route component={NoMatch} />
               </Switch>
           </div>

@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Alerts } from './Alerts'
 
-export const Profile = ( findMe ) => {
-    return (
-        <div>
-            <h1>PROFILE</h1>
-        </div>
+export const Profile = ({ user, setLoggedin }) => {
+
+return (
+    <div>
+        <h1>Profile Info</h1>
+        <Alerts />
+    </div>
     )
 }
