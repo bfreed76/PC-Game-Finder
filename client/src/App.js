@@ -1,21 +1,23 @@
 
-import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, useHistory, Redirect, withRouter } from 'react-router-dom'
 import { Home } from './Components/Home'
 import { AlertsContainer } from './Components/AlertsContainer'
-import { Deals } from './Components/Deals'
+import { DealsContainer } from './Components/DealsContainer'
 import { Login } from './Components/Login'
 import { Register } from './Components/Register'
 import { Profile } from './Components/Profile'
 import { NoMatch } from './Components/NoMatch'
 import { Navigation } from './Components/Navigation'
+import { GameCards } from './Components/GameCards'
+import { GamesContainer } from './Components/GamesContainer'
 import React, { useState, useEffect } from 'react'
-import { Jumbotron, Button, Container } from 'react-bootstrap'
 import './App.css'
 
-function App() {
+function App( props ) {
   const [user, setUser] = useState({})
   const [loggedin, setLoggedin] = useState(false)
-  let history = useHistory()
+  const [games, setGames] = useState([])
+  const history = useHistory()
 
   useEffect(() => {  //matches user in system(if one) with session user, passes user info
     findMe()
@@ -29,9 +31,10 @@ function App() {
         if (!data.error) {
           setUser(data)
           setLoggedin(true)
-        }
-      }
-    )
+            }
+          }  
+        )
+      .catch((err) => console.log("error =", err))
   }
 
    const handleLogout = (e) => {
@@ -48,15 +51,32 @@ function App() {
       .catch((err) => console.log("error =", err))
    }
 
+   const submitGameSearch = (e) => {
+      e.preventDefault()
+      const search = e.target.firstElementChild.value
+      fetch("https://www.cheapshark.com/api/1.0/games?title=" + search + "&limit=60&exact=0")
+      .then((res) => res.json())
+      .then((games) => {
+        setGames(games)
+        console.log(games)
+        history.push("/games")
+        games.map((game) => <GameCards game={game} />)
+      })
+      .catch((err) => console.log("error =", err))
+   }
+
   return (
       <Router>
         <div className="App">
           <div className="container">
-              <Navigation loggedin={loggedin} handleLogout={handleLogout}/>
+              <Navigation loggedin={loggedin} handleLogout={handleLogout} submitGameSearch={submitGameSearch}/>
               <Switch>
                 <Route exact path ="/" component={Home} />
-                <Route exact path ="/alerts" component={AlertsContainer} />
-                <Route exact path ="/deals" component={Deals} />
+                <Route exact path ="/alerts">
+                {loggedin ? <AlertsContainer user={user} /> 
+                  : <Login setUser={setUser} setLoggedIn={setLoggedin} /> }
+                  </Route>
+                <Route exact path ="/deals" component={DealsContainer} />
                 <Route exact path ="/login">
                   <Login setUser={setUser} setLoggedIn={setLoggedin} />
                 </Route>
@@ -64,7 +84,8 @@ function App() {
                   <Register setUser={setUser} setLoggedin={setLoggedin} />  
                 </Route>
                 <Route exact path ="/profile"> 
-                  {Object.keys(user).length > 1 ? <Profile user={user} setLoggedin={setLoggedin} /> : <Login setUser={setUser} setLoggedIn={setLoggedin} /> }
+                  {loggedin ? <Profile user={user} setLoggedin={setLoggedin} /> 
+                        : <Login setUser={setUser} setLoggedIn={setLoggedin} /> }
                 </Route> 
                 <Route component={NoMatch} />
               </Switch>

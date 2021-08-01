@@ -1,9 +1,12 @@
 import React from 'react'
 
 export const Deals = () => {
+
+    
     return (
         <div>
-            <h1>DEALS!</h1>
+            <h1>deals cards</h1>
+            <p> adfds</p>
         </div>
     )
 }

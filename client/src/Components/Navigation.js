@@ -1,7 +1,13 @@
-
+import React, { useState } from "react"
+import { Route, Switch, withRouter } from "react-router-dom";
 import { Button, Container, Nav, Navbar, Form, FormControl } from 'react-bootstrap'
 
-export const Navigation = ({ loggedin, handleLogout }) => {
+export const Navigation = ({ loggedin, handleLogout, submitGameSearch }) => {
+  const [search, setSearch] =  useState("")
+
+  const handleChange = (e) => {
+    setSearch(e.target.value)
+  }
 
     return (
       <div>
@@ -11,11 +17,12 @@ export const Navigation = ({ loggedin, handleLogout }) => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-            <Nav.Link href="#find_deals">Find Deals</Nav.Link>
-            <Nav.Link href="#alerts">Alerts</Nav.Link>
-            <Form inline >
-                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                {/* <Button variant="outline-success">Search</Button> */}
+            <Nav.Link href="deals">Find Deals</Nav.Link>
+            <Nav.Link href="alerts">Alerts</Nav.Link>
+            <Form inline onSubmit={submitGameSearch}>
+                <FormControl type="text" placeholder="Game Title" className="mr-sm-2" onChange={handleChange} 
+                    name="search" value={search}/>
+                <Button variant="outline-success" type='submit'>Search</Button>
             </Form>
             </Nav>
             <Nav>
