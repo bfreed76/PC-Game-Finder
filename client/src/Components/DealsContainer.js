@@ -1,14 +1,19 @@
 import { Deals } from './Deals'
 import React, { useState, useEffect } from 'react'
 import { GameCards } from './GameCards'
-import { Button, Form, FormControl } from 'react-bootstrap'
+import { Button, Form, FormControl, CardGroup } from 'react-bootstrap'
 
-export const DealsContainer = () => {
+export const DealsContainer = ({ user }) => {
     const [search, setSearch] =  useState("")
     const [games, setGames] = useState([])
 
     const handleChange = (e) => {
         setSearch(e.target.value)
+    }
+
+    const createAlert = () => {
+        console.log("create alert = " + user)
+
     }
 
     const submitGameSearch = (e) => {
@@ -17,12 +22,9 @@ export const DealsContainer = () => {
         fetch("https://www.cheapshark.com/api/1.0/games?title=" + search + "&limit=60&exact=0")
         .then((res) => res.json())
         .then((games) => {
-          setGames(games)
-        //   console.log(games)
-          games.map((game) => <GameCards game={game} />)
-        })
+            setGames(games)})
         .catch((err) => console.log("error =", err))
-     }
+        }
 
     return (
         <div>
@@ -32,8 +34,10 @@ export const DealsContainer = () => {
                     name="search" value={search}/>
             <Button variant="outline-success" type='submit'>Search</Button>
             </Form>
+            <CardGroup>
             {Object.keys(games).length === 0  ? <h1>Search Game Titles</h1> : games.map((game, id) => <GameCards key={id} title={game.external} 
-                gameID={game.gameID} price={game.cheapest} cheapestID={game.cheapestDealID} thumb={game.thumb} />)}
+                gameID={game.gameID} user={user} createAlert={createAlert} price={game.cheapest} cheapestID={game.cheapestDealID} thumb={game.thumb} />)}
+            </CardGroup>
         </div>
     )
 }

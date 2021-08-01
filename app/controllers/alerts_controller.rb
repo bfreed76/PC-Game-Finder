@@ -17,7 +17,6 @@ class AlertsController < ApplicationController
     end
 
     def new
-        byebug
         user = User.find_by(id: session[:user_id])
         alert = user.alerts.new(alerts_params)
         if alert.save

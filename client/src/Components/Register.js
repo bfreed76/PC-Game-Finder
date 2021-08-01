@@ -39,7 +39,7 @@ export const Register = ({ setUser, setLoggedin }) => {
   }
   return (
     <div className='login-form'>
-      <h1>Sign Up******************************************************</h1>
+      <h1>Sign Up</h1>
       <Form onSubmit={handleSignup}>
         <Form.Group className='mb-4' controlId='formBasicEmail'>
           <Form.Label>Email address</Form.Label>

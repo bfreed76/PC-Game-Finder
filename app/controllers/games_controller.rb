@@ -9,4 +9,15 @@ class GamesController < ApplicationController
         game = Game.find_by(id: params[:id])
         render json: game
     end
+
+    def create
+        game = Game.create(game_params)
+        render json: game, status: :created
+    end
+
+    private
+
+    def game_params
+        params.permit(:title, :game_code)
+    end
 end

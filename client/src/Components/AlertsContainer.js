@@ -38,10 +38,9 @@ export const AlertsContainer = ({ user }) => {
 
     return (
         <div>
-            {/* <NewAlertForm /> */}
             <hr></hr>
             <br></br>
-             {alerts.length === 0 ? <h1>No Alerts Found</h1> : 
+             {alerts.length === 0 ? <h1>No Active Alerts</h1> : 
                 <> 
                 <h2>Your Alerts</h2>
                 {renderAlerts()}

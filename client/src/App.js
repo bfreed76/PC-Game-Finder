@@ -16,8 +16,6 @@ import './App.css'
 function App( props ) {
   const [user, setUser] = useState({})
   const [loggedin, setLoggedin] = useState(false)
-  const [games, setGames] = useState([])
-  const history = useHistory()
 
   useEffect(() => {  //matches user in system(if one) with session user, passes user info
     findMe()
@@ -51,32 +49,20 @@ function App( props ) {
       .catch((err) => console.log("error =", err))
    }
 
-   const submitGameSearch = (e) => {
-      e.preventDefault()
-      const search = e.target.firstElementChild.value
-      fetch("https://www.cheapshark.com/api/1.0/games?title=" + search + "&limit=60&exact=0")
-      .then((res) => res.json())
-      .then((games) => {
-        setGames(games)
-        console.log(games)
-        history.push("/games")
-        games.map((game) => <GameCards game={game} />)
-      })
-      .catch((err) => console.log("error =", err))
-   }
-
   return (
       <Router>
         <div className="App">
           <div className="container">
-              <Navigation loggedin={loggedin} handleLogout={handleLogout} submitGameSearch={submitGameSearch}/>
+              <Navigation loggedin={loggedin} handleLogout={handleLogout}/>
               <Switch>
                 <Route exact path ="/" component={Home} />
                 <Route exact path ="/alerts">
                 {loggedin ? <AlertsContainer user={user} /> 
                   : <Login setUser={setUser} setLoggedIn={setLoggedin} /> }
                   </Route>
-                <Route exact path ="/deals" component={DealsContainer} />
+                <Route exact path ="/deals">
+                  <DealsContainer user={user} />
+                </Route> 
                 <Route exact path ="/login">
                   <Login setUser={setUser} setLoggedIn={setLoggedin} />
                 </Route>

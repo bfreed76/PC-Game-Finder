@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { Form, Button } from "react-bootstrap"
 import { useHistory } from "react-router-dom"
-// const RAILS_API = 'http://localhost:3000/'
 
 export const Login = ({ setUser, setLoggedIn }) => {
   const [email, setEmail] = useState("")
@@ -30,7 +29,6 @@ export const Login = ({ setUser, setLoggedIn }) => {
       .then((data) => {
         console.log(data)
         if (!!data.id) {
-          console.log("SUCCCCCEEEESSSS")
           setUser(data)
           setLoggedIn(true)
           history.push("/")

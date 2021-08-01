@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   ####! Check controller methods before limiting routes
-  # resources :games
+  resources :games
   resources :alerts
   resources :users
 
@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get '/users/:user_id/games', to: 'users#user_games'
   get "/me", to: "users#me"
   post "/signup", to: "users#create"
-  post "/create", to: "alerts#new"
+
+  post "/add_alert", to: "alerts#new"
+  post "/add_game", to: "games#create"
 
   delete "alerts/delete/:alert_id", to: 'alerts#destroy'
 

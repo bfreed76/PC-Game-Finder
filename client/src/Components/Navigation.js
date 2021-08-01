@@ -2,12 +2,7 @@ import React, { useState } from "react"
 import { Route, Switch, withRouter } from "react-router-dom";
 import { Button, Container, Nav, Navbar, Form, FormControl } from 'react-bootstrap'
 
-export const Navigation = ({ loggedin, handleLogout, submitGameSearch }) => {
-  const [search, setSearch] =  useState("")
-
-  const handleChange = (e) => {
-    setSearch(e.target.value)
-  }
+export const Navigation = ({ loggedin, handleLogout }) => {
 
     return (
       <div>
@@ -17,13 +12,8 @@ export const Navigation = ({ loggedin, handleLogout, submitGameSearch }) => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-            <Nav.Link href="deals">Find Deals</Nav.Link>
+            <Nav.Link href="deals">Search Games</Nav.Link>
             <Nav.Link href="alerts">Alerts</Nav.Link>
-            <Form inline onSubmit={submitGameSearch}>
-                <FormControl type="text" placeholder="Game Title" className="mr-sm-2" onChange={handleChange} 
-                    name="search" value={search}/>
-                <Button variant="outline-success" type='submit'>Search</Button>
-            </Form>
             </Nav>
             <Nav>
             {loggedin ? 
@@ -36,6 +26,15 @@ export const Navigation = ({ loggedin, handleLogout, submitGameSearch }) => {
                 <Nav.Link eventKey={2} href="register">Register</Nav.Link> 
                 </>}
             </Nav>
+                      {/* <Form className="d-flex">
+                <FormControl
+                  type="search"
+                  placeholder="Search"
+                  className="mr-2"
+                  aria-label="Search"
+                />
+                <Button variant="outline-success">Search</Button>
+                </Form> */}
         </Navbar.Collapse>
         </Container>
         </Navbar>
