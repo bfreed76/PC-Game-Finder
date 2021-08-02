@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
     def index
         users = User.all
@@ -7,7 +8,7 @@ class UsersController < ApplicationController
 
     def show #profile
         user = User.find_by(id: params[:id])
-        render json: user
+        render json: user, include: :user
     end
 
     def create #signup

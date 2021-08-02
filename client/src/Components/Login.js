@@ -40,7 +40,7 @@ export const Login = ({ setUser, setLoggedIn }) => {
   return (
     <div className='login-form'>
       <h1>Welcome Back!</h1>
-      <Form onSubmit={handleLogin}>
+      <Form onSubmit={handleLogin} style={{margin: "auto", width: "50%"}}>
         <Form.Group className='mb-4' controlId='formBa  cEmail'>
           <Form.Label>Email address</Form.Label>
           <Form.Control

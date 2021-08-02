@@ -61,7 +61,7 @@ function App( props ) {
                   : <Login setUser={setUser} setLoggedIn={setLoggedin} /> }
                   </Route>
                 <Route exact path ="/deals">
-                  <DealsContainer user={user} />
+                  <DealsContainer user={user} loggedin={loggedin}/>
                 </Route> 
                 <Route exact path ="/login">
                   <Login setUser={setUser} setLoggedIn={setLoggedin} />

@@ -29,12 +29,12 @@ g4 = Game.create(title: "Call of Duty 5", game_code: "234234")
 
 puts "SEEDING ALERTS (join table)"
 
-a1 = Alert.create(name: "cod3", price: "10", user_id: u1.id, game_id: g1.id)
-a2 = Alert.create(name: "lofu2", price: "13", user_id: u2.id, game_id: g2.id)
-a3 = Alert.create(name: "diablo3", price: "14", user_id: u2.id, game_id: g3.id)
-a4 = Alert.create(name: "D3", price: "16", user_id: u4.id, game_id: g3.id)
-a5 = Alert.create(name: "lastofus2", price: "3", user_id: u3.id, game_id: g2.id)
-a6 = Alert.create(name: "diabloIII", price: "4", user_id: u3.id, game_id: g3.id)
-a7 = Alert.create(name: "callduty5", price: "2", user_id: u1.id, game_id: g4.id)
+a1 = Alert.create(name: "cod3", title: "COD3", price: "10", user_id: u1.id, game_id: g1.id)
+a2 = Alert.create(name: "lofu2", title: "The Last of Us 2", price: "13", user_id: u2.id, game_id: g2.id)
+a3 = Alert.create(name: "diablo3", title: "Diablo 3", price: "14", user_id: u2.id, game_id: g3.id)
+a4 = Alert.create(name: "D3", title: "Diablo 3", price: "16", user_id: u4.id, game_id: g3.id)
+a5 = Alert.create(name: "lastofus2", title: "The Last of Us 2", price: "3", user_id: u3.id, game_id: g2.id)
+a6 = Alert.create(name: "diabloIII", title: "Diablo 3", price: "4", user_id: u3.id, game_id: g3.id)
+a7 = Alert.create(name: "callduty5", title: "COD5", price: "2", user_id: u1.id, game_id: g4.id)
 
 puts "SEEDED"

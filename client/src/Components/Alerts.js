@@ -1,30 +1,26 @@
 import React from 'react'
 import { Button, Card, ListGroup, ListGroupItem } from 'react-bootstrap'
 
-export const Alerts = ({ name, price, deleteAlert, alertID }) => {
+export const Alerts = ({ name, price, deleteAlert, alertID, title, editAlert }) => {
     return (
         <div>
-            {/* <h3>Alert Name: {name}, Price: {price}</h3>  */}
-            {/* <Card className="text-center" style={{margin: "auto", width: "50%"}}>
-            <Card.Header>Your Alert</Card.Header>
-            <Card.Body>
-                <Card.Title>{name}</Card.Title>
-                <Card.Text>
-                Maximum Price: ${price}.00
-                </Card.Text>
-            </Card.Body>
-            </Card> */}
 
             <Card style={{margin: "auto", width: "50%"}}>
             <Card.Body>
-                <Card.Title>{name}</Card.Title>
+                <Card.Title>Alert Name: {name}</Card.Title>
             <ListGroup className="list-group-flush">
+                <ListGroupItem>Game Title: {title}</ListGroupItem>
                 <ListGroupItem>Maximum Price: ${price}.00</ListGroupItem>
-                <Button variant="primary" onClick={() => deleteAlert(alertID)}>Delete</Button>
+                <br></br>
+                <div style={{display: "inline-block"}}>
+                    <Button variant="primary" onClick={() => deleteAlert(alertID)} style={{margin: "1%", width: "30%"}}>Delete</Button>
+                    <Button variant="secondary" onClick={() => editAlert(editAlert)} style={{margin: "auto", width: "30%"}}>Edit</Button>
+                </div>
             </ListGroup>
-            <Card.Footer className="text-muted">4 days ago</Card.Footer>
+            <hr></hr>
             </Card.Body>
             </Card>
+            <br></br>
 
         </div>
     )

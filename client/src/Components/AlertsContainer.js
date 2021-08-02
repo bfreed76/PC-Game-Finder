@@ -3,7 +3,7 @@ import { Alerts } from './Alerts'
 import { NewAlertForm } from './NewAlertForm'
 
 
-export const AlertsContainer = ({ user }) => {
+export const AlertsContainer = ({ user, title }) => {
     const [alerts, setAlerts] = useState([])
     
     useEffect(() => fetchAlerts(), [])
@@ -17,10 +17,9 @@ export const AlertsContainer = ({ user }) => {
 
     const renderAlerts = () => {
         if (!!alerts) { 
-            return alerts.map(alert => <Alerts name={alert.name} 
+            return alerts.map(alert => <Alerts name={alert.name} title={alert.title} editAlert={editAlert}
                 price={alert.price} alertID={alert.id} deleteAlert={deleteAlert} />)
-         } else { 
-        console.log("alerts =", alerts)}
+         } 
     }
 
     const deleteAlert = (alertID) => {
@@ -35,6 +34,9 @@ export const AlertsContainer = ({ user }) => {
         })
         .catch((err) => console.log("delete err = ", err))
     }
+
+    const editAlert = () => {}
+
 
     return (
         <div>

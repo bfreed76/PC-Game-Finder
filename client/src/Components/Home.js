@@ -1,17 +1,18 @@
 import React from 'react'
 import { Jumbotron, Button, Container } from 'react-bootstrap'
+import { NavLink, Link } from 'react-router-dom'
 
 export const Home = () => {
     return (
         <Jumbotron >
         <h1>PC GameFinder</h1>
         <p>
-            This is a simple hero unit, a simple jumbotron-style component for calling
-            extra attention to featured content or information.
+            Find the lowest prices for your next PC game! PC Gamefinder searches all over the 
+            internet to find you the best deal.
         </p>
-        <p>
-            <Button variant="primary">Learn more</Button>
-        </p>
+        {/* <Link to="/deals"> */}
+            <Button href="login">Search Games</Button>
+        {/* </Link> */}
         </Jumbotron>
     )
 }

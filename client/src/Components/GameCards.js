@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Card, Button, ListGroup, ListGroupItem, Modal,  Form, Row, Col } from 'react-bootstrap'
+import { Card, Button, ListGroup, ListGroupItem, Modal,  Form, Row, Col, Spinner } from 'react-bootstrap'
 import { Alerts, AlertsContainer } from './AlertsContainer'
 import { DealsContainer } from './DealsContainer'
 import { Profile } from './Profile'
 
 
-export const GameCards = ({ createAlert, user, title, thumb, price, cheapestID, gameID }) => {
+export const GameCards = ({ createAlert, user, title, thumb, price, cheapestID, gameID, loggedin }) => {
     const [addInfo, setAddInfo] = useState({})
     const [gameIDfromDB, setgameIDfromDB] = useState("")
     const dealLink = "https://www.cheapshark.com/redirect?dealID={" + cheapestID + "}"
@@ -17,66 +17,44 @@ export const GameCards = ({ createAlert, user, title, thumb, price, cheapestID, 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    // useEffect(() => { 
-    //     fetchAdditionalInfo()
-    //   }, [])
-
-    // const fetchAdditionalInfo = () => {
-    //         fetch("https://www.cheapshark.com/api/1.0/deals?id=" + cheapestID)
-    //         .then((res) => res.json())
-    //         .then((res) => console.log(res))
-    //         .then((game) => setAddInfo(game))
-    //         .catch((err) => console.log("error =", err))
-    //      } 
-
-
     const handleChange = (e) => {
         if (e.target.name === "alertName") setAlertName(e.target.value)
         if (e.target.name === "maxPrice") setMaxPrice(e.target.value)
     }
-
-
 
     const handleSubmit = (e) => {
         //? persist game data, persist alert data through user
         e.preventDefault()
         const gameObj = {
             method: "POST",
-            headers: {
-                "Content-type": "application/json"
-            },
+            headers: { "Content-type": "application/json" },
             body: JSON.stringify({
-                "title": title,
-                "game_code": gameID
-                }),
-            }
+                title: title,
+                game_code: gameID
+                })}
         const alertObj = {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
             },
             body: JSON.stringify({
-                "name": alertName,
-                "price": maxPrice,
-                "game_id": gameID
+                name: alertName,
+                title: title,
+                price: maxPrice,
+                game_id: "1"  
                 }),
             }
         fetch("/add_game", gameObj)
                 .then((res) => res.json())
                 .then((res) => {
-                    console.log("NEW GAME ID: " + res.id)
                     setgameIDfromDB(res.id)
                     })
                 .then(fetch("/add_alert", alertObj)
                         .then((res) => res.json())
-                        .then((res) => {
-                            console.log(res)
-                        }
-                        ))
-            }
-
-
-    
+                        .then((res) => console.log(res))
+                        .catch(err => console.log("error =", err))
+                    ) 
+                }
 
     return (
 
@@ -87,17 +65,17 @@ export const GameCards = ({ createAlert, user, title, thumb, price, cheapestID, 
                 <Card.Title>{title}</Card.Title>
             </Card.Body>
             <ListGroup className="list-group-flush">
-                <ListGroupItem>Current Lowest Price: ${price}</ListGroupItem>
-                {/* {addInfo.gameInfo.steamRatingText ? <ListGroupItem>Cheapest Price Ever: {addInfo.gameInfo.steamRatingText} </ListGroupItem> : <></>} */}
+                <ListGroupItem><h5>Current Deal: ${price}</h5></ListGroupItem>
             </ListGroup>
-            <Button variant="primary" onClick={handleShow}>Create Alert</Button>
+            {loggedin ? <Button variant="primary" onClick={handleShow}>Create Alert</Button> : 
+            <> <br></br> <h4>Login to create alerts</h4> </>}
             <Card.Body>
                 <Card.Link href={dealLink}>Link to Deal</Card.Link>
             </Card.Body>
             </Card>
 
             <>
-                <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
                     <Modal.Title>New Alert</Modal.Title>
                     </Modal.Header>
@@ -112,13 +90,13 @@ export const GameCards = ({ createAlert, user, title, thumb, price, cheapestID, 
                     <Form.Control placeholder="Max Price" onChange={handleChange} name="maxPrice" value={maxPrice} />
                     </Col>
                     <Col>
-                    <Button variant='primary' type='submit'>Create Alert</Button>
+                    <Button variant='primary' type='submit' onClick={handleClose}>Create Alert</Button>
                     </Col>
                 </Row>
-            </Form>
-                    <AlertsContainer user={user}></AlertsContainer>
+                    </Form>
+                    <AlertsContainer user={user} title={title}></AlertsContainer>
                     </Modal.Body>
-                </Modal>
+            </Modal>
             </>
             <br></br>
         </div>

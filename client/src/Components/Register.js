@@ -2,8 +2,6 @@ import React, { useState } from "react"
 import { Form, Button } from "react-bootstrap"
 import { useHistory } from "react-router-dom"
 
-// const RAILS_API = "http://localhost:4000/"
-
 export const Register = ({ setUser, setLoggedin }) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -27,7 +25,7 @@ export const Register = ({ setUser, setLoggedin }) => {
             password,
         }),
       }
-      // console.log(signupObj)
+
     fetch("signup", signupObj)
       .then((res) => res.json())
       .then((data) => {
@@ -40,9 +38,9 @@ export const Register = ({ setUser, setLoggedin }) => {
   return (
     <div className='login-form'>
       <h1>Sign Up</h1>
-      <Form onSubmit={handleSignup}>
+      <Form onSubmit={handleSignup} style={{margin: "auto", width: "35%"}}>
         <Form.Group className='mb-4' controlId='formBasicEmail'>
-          <Form.Label>Email address</Form.Label>
+          <Form.Label></Form.Label>
           <Form.Control
             type='email'
             placeholder='Enter email'
@@ -53,7 +51,7 @@ export const Register = ({ setUser, setLoggedin }) => {
         </Form.Group>
 
         <Form.Group className='mb-4' controlId='formBasicPassword'>
-          <Form.Label>Password</Form.Label>
+          <Form.Label></Form.Label>
           <Form.Control
             type='password'
             placeholder='Password'

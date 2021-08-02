@@ -1,4 +1,5 @@
 class AlertsController < ApplicationController
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
     def index
         alerts = Alert.all
@@ -29,7 +30,7 @@ class AlertsController < ApplicationController
     private
 
     def alerts_params
-        params.permit(:name, :price, :game_id)
+        params.permit(:name, :price, :game_id, :title)
     end
 
 end

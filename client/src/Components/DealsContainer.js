@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { GameCards } from './GameCards'
 import { Button, Form, FormControl, CardGroup } from 'react-bootstrap'
 
-export const DealsContainer = ({ user }) => {
+export const DealsContainer = ({ user, loggedin }) => {
     const [search, setSearch] =  useState("")
     const [games, setGames] = useState([])
 
@@ -28,15 +28,18 @@ export const DealsContainer = ({ user }) => {
 
     return (
         <div>
-            <h1>DEALS!</h1>
-            <Form inline onSubmit={submitGameSearch}>
-            <FormControl type="text" placeholder="Game Title" className="mr-sm-2" onChange={handleChange} 
+            <h1>SEARCH GAMES</h1>
+            <Form inline onSubmit={submitGameSearch} style={{margin: "auto", width: "40%"}}>
+            <FormControl type="text" placeholder="Enter Game Title" className="mr-sm-2" onChange={handleChange} 
                     name="search" value={search}/>
-            <Button variant="outline-success" type='submit'>Search</Button>
+                    <br></br>
+            <Button variant="primary" type='submit'>Search</Button>
+                    <hr></hr>
             </Form>
+            <br></br>
             <CardGroup>
-            {Object.keys(games).length === 0  ? <h1>Search Game Titles</h1> : games.map((game, id) => <GameCards key={id} title={game.external} 
-                gameID={game.gameID} user={user} createAlert={createAlert} price={game.cheapest} cheapestID={game.cheapestDealID} thumb={game.thumb} />)}
+            {Object.keys(games).length === 0  ? <h1 style={{margin: "auto"}}></h1> : games.map((game, id) => <GameCards key={id} title={game.external} 
+                gameID={game.gameID} user={user} createAlert={createAlert} loggedin={loggedin} price={game.cheapest} cheapestID={game.cheapestDealID} thumb={game.thumb} />)}
             </CardGroup>
         </div>
     )

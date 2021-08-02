@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
   ####! Check controller methods before limiting routes
+  resources :users 
+  resources :alerts 
   resources :games
-  resources :alerts
-  resources :users
 
   get '/users/:user_id/alerts', to: 'users#user_alerts'
   get '/users/:user_id/games', to: 'users#user_games'
