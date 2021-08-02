@@ -5,6 +5,7 @@ import { NewAlertForm } from './NewAlertForm'
 
 export const AlertsContainer = ({ user, title }) => {
     const [alerts, setAlerts] = useState([])
+
     
     useEffect(() => fetchAlerts(), [])
     
@@ -17,8 +18,8 @@ export const AlertsContainer = ({ user, title }) => {
 
     const renderAlerts = () => {
         if (!!alerts) { 
-            return alerts.map(alert => <Alerts name={alert.name} title={alert.title} editAlert={editAlert}
-                price={alert.price} alertID={alert.id} deleteAlert={deleteAlert} />)
+            return alerts.map(alert => <Alerts name={alert.name} title={alert.title}
+                price={alert.price} alertID={alert.id} deleteAlert={deleteAlert} updateAlert={updateAlert} />)
          } 
     }
 
@@ -35,8 +36,26 @@ export const AlertsContainer = ({ user, title }) => {
         .catch((err) => console.log("delete err = ", err))
     }
 
-    const editAlert = () => {}
-
+    const updateAlert = (alertID, newName, newPrice) => {
+        console.log("updateAlert = ", alertID, newName, newPrice)
+        const updateObj = {
+            method: "PATCH", 
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({
+                name: newName,
+                price: newPrice
+            })
+        }
+        fetch("alerts/" + alertID, updateObj)
+        .then((res) => res.json())
+        .then((res) => {
+            console.log(res)
+            // window.location.reload()
+        })
+        .catch((err) => console.log("delete err = ", err))
+    }
 
     return (
         <div>

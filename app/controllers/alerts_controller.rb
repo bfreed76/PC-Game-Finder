@@ -17,6 +17,16 @@ class AlertsController < ApplicationController
         render json: alert
     end
 
+    def update
+        alert = Alert.find_by(id: params[:id])
+        if alert
+            alert.update(alerts_params)
+            render json: alert
+        else
+            render json: { error: "Alert ID not found" }, status: :not_found 
+        end
+    end
+
     def new
         user = User.find_by(id: session[:user_id])
         alert = user.alerts.new(alerts_params)

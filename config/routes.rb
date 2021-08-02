@@ -13,11 +13,11 @@ Rails.application.routes.draw do
   post "/add_alert", to: "alerts#new"
   post "/add_game", to: "games#create"
 
-  delete "alerts/delete/:alert_id", to: 'alerts#destroy'
+  delete "alerts/:alert_id", to: 'alerts#destroy'
+  patch "alerts/:alert_id", to: 'alerts#update' 
 
   post "/login", to: "sessions#login"
   delete "/logout", to: "sessions#destroy"
-
 
 
 

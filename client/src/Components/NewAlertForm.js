@@ -36,7 +36,7 @@ export const NewAlertForm = () => {
 
     return (
         <div>
-            <h2>New Alert Form</h2>
+            <h2>Update Alert</h2>
             <Form onSubmit={handleSubmit}>
                 <Row>
                     <Col>
