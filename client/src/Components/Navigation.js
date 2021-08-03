@@ -1,10 +1,8 @@
-import React, { useState } from "react"
-import { Route, Switch, withRouter } from "react-router-dom";
-import { Button, Container, Nav, Navbar, Form, FormControl } from 'react-bootstrap'
+import { Button, Container, Nav, Navbar} from 'react-bootstrap'
 
 export const Navigation = ({ loggedin, handleLogout }) => {
 
-    return (
+    return (      //NavBar
       <div>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
@@ -26,15 +24,6 @@ export const Navigation = ({ loggedin, handleLogout }) => {
                 <Nav.Link eventKey={2} href="register">Register</Nav.Link> 
                 </>}
             </Nav>
-                      {/* <Form className="d-flex">
-                <FormControl
-                  type="search"
-                  placeholder="Search"
-                  className="mr-2"
-                  aria-label="Search"
-                />
-                <Button variant="outline-success">Search</Button>
-                </Form> */}
         </Navbar.Collapse>
         </Container>
         </Navbar>

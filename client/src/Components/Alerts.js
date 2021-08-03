@@ -40,8 +40,8 @@ export const Alerts = ({ name, price, deleteAlert, alertID, title, updateAlert }
                     </Col>
                 </Row>
             <hr></hr>
-                    <Button variant="secondary" type="submit" style={{margin: "auto", width: "200px"}}>Delete</Button>
             </Form>
+                    <Button variant="secondary" onClick={() => deleteAlert(alertID)} style={{margin: "auto", width: "200px"}}>Delete</Button>
             </Card.Body>
             </Card>
             <br></br>

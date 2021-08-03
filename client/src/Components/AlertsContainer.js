@@ -24,6 +24,7 @@ export const AlertsContainer = ({ user, title }) => {
     }
 
     const deleteAlert = (alertID) => {
+        console.log("DELETE WORKING")
         const delObj = {
             method: "DELETE"
         }
@@ -52,7 +53,7 @@ export const AlertsContainer = ({ user, title }) => {
         .then((res) => res.json())
         .then((res) => {
             console.log(res)
-            // window.location.reload()
+            window.location.reload()
         })
         .catch((err) => console.log("delete err = ", err))
     }

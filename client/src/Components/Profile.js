@@ -9,7 +9,6 @@ return (
     <div>
         <h1>Profile Info</h1>
         <ListGroup variant="flush" style={{ width: "50%", margin: "auto" }}>
-        <ListGroup.Item>username: {user.username}</ListGroup.Item>
         <ListGroup.Item>email: {user.email}</ListGroup.Item>
         </ListGroup>
         <AlertsContainer user={user} />

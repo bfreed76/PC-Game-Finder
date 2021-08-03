@@ -13,12 +13,21 @@ class GamesController < ApplicationController
 
     def create
         game = Game.create(game_params)
-        render json: game, status: :created
+        alert = game.alerts.create(alert_params)
+        # byebug
+        render json: alert, status: :created
     end
+
+    # new route add game_alert, permit alert params below
 
     private
 
     def game_params
         params.permit(:title, :game_code)
     end
+
+    def alert_params
+        params[:alerts][0].permit(:name, :price, :user_id)
+    end
+
 end
