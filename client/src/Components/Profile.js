@@ -1,5 +1,5 @@
 import React from "react";
-import { AlertsContainer } from "./AlertsContainer";
+import { AlertsContainer } from "../Containers/AlertsContainer";
 import { ListGroup } from "react-bootstrap";
 
 export const Profile = ({ user }) => {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Alerts } from "./Alerts";
+import { Alerts } from "../Components/Alerts";
 
 export const AlertsContainer = ({ user }) => {
   const [alerts, setAlerts] = useState([]);

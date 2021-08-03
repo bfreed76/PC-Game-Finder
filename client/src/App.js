@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home } from "./Components/Home";
-import { AlertsContainer } from "./Components/AlertsContainer";
-import { DealsContainer } from "./Components/DealsContainer";
+import { AlertsContainer } from "./Containers/AlertsContainer";
+import { DealsContainer } from "./Containers/DealsContainer";
 import { Login } from "./Components/Login";
 import { Register } from "./Components/Register";
 import { Profile } from "./Components/Profile";

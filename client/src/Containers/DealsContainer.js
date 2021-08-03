@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { GameCards } from "./GameCards";
+import { GameCards } from "../Components/GameCards";
 import { Button, Form, FormControl, CardGroup } from "react-bootstrap";
 
 export const DealsContainer = ({ user, loggedin }) => {

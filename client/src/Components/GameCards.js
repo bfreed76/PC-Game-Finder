@@ -9,7 +9,7 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
-import { AlertsContainer } from "./AlertsContainer";
+import { AlertsContainer } from "../Containers/AlertsContainer";
 
 export const GameCards = ({
   user,
