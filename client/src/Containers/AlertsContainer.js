@@ -4,7 +4,7 @@ import { Alerts } from "../Components/Alerts";
 export const AlertsContainer = ({ user }) => {
   const [alerts, setAlerts] = useState([]);
 
-  useEffect(() => fetchAlerts());       // Retrieves alerts for logged in user
+  useEffect(() => fetchAlerts(), []);       // Retrieves alerts for logged in user
 
   const fetchAlerts = () => {
     fetch("users/" + user.id + "/alerts")
