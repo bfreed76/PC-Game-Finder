@@ -53,32 +53,17 @@ export const GameCards = ({
             name: alertName,
             title: title,
             price: maxPrice,
-            user_id: user.id
+            user_id: user.id,
           },
         ],
       }),
     };
-    // const alertObj = {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     name: alertName,
-    //     title: title,
-    //     price: maxPrice,
-    //     game_id: gameIDfromDB,
-    //   }),
-    // };
     fetch("/add_game", gameObj)
       .then((res) => res.json())
       .then((game) => {
-        console.log(game)
-        // fetch("/add_alert", alertObj)
-        //   .then((data) => data.json())
-        //   .then((data) => console.log(data))
-        //   .catch((err) => console.log("error =", err));
+        console.log("Alert and game saved = ", game);
       });
+      .catch(err) => console.log("error =", err);
   };
 
   return (
