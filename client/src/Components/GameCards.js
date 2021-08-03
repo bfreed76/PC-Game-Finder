@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Card,
   Button,
@@ -8,14 +8,10 @@ import {
   Form,
   Row,
   Col,
-  Spinner,
 } from "react-bootstrap";
-import { Alerts, AlertsContainer } from "./AlertsContainer";
-import { DealsContainer } from "./DealsContainer";
-import { Profile } from "./Profile";
+import { AlertsContainer } from "./AlertsContainer";
 
 export const GameCards = ({
-  createAlert,
   user,
   title,
   thumb,
@@ -24,13 +20,11 @@ export const GameCards = ({
   gameID,
   loggedin,
 }) => {
-  const [gameIDfromDB, setGameIDfromDB] = useState("1");
   const dealLink =
     "https://www.cheapshark.com/redirect?dealID={" + cheapestID + "}";
   const [show, setShow] = useState(false);
   const [alertName, setAlertName] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
-  // const alertLink = "https://www.cheapshark.com/api/1.0/alerts?action=set&email=someone@example.org&gameID=34&price=14.99"
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -40,7 +34,7 @@ export const GameCards = ({
     if (e.target.name === "maxPrice") setMaxPrice(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => {         // Create alert and game, and makes assoc. in local DB
     e.preventDefault();
     const gameObj = {
       method: "POST",
@@ -62,11 +56,11 @@ export const GameCards = ({
       .then((res) => res.json())
       .then((game) => {
         console.log("Alert and game saved = ", game);
-      });
-      .catch(err) => console.log("error =", err);
+      }
+      );
   };
 
-  return (
+  return (    // Game card and create alert model
     <div>
       <Card style={{ width: "18rem", height: "25rem" }}>
         <Card.Img

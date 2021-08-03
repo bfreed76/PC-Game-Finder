@@ -14,7 +14,6 @@ class GamesController < ApplicationController
     def create
         game = Game.create(game_params)
         alert = game.alerts.create(alert_params)
-        # byebug
         render json: alert, status: :created
     end
 
@@ -27,7 +26,7 @@ class GamesController < ApplicationController
     end
 
     def alert_params
-        params[:alerts][0].permit(:name, :price, :user_id)
+        params[:alerts][0].permit(:name, :price, :user_id, :title)
     end
 
 end

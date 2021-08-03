@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export const NoMatch = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return (
+    <div>
+      <h1>No page matches your search.</h1>
+    </div>
+  );
+};

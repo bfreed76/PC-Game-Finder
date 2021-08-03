@@ -1,10 +1,8 @@
 import React from "react";
-import { Jumbotron, Button, Container } from "react-bootstrap";
-import { NavLink, Link } from "react-router-dom";
+import { Jumbotron, Button } from "react-bootstrap";
 
-export const Home = () => {
-  // Landing page
-  return (
+export const Home = () => {               
+  return (                                      // Landing page
     <Jumbotron>
       <h1>PC GameFinder</h1>
       <p>

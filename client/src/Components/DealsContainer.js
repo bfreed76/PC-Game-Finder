@@ -54,8 +54,7 @@ export const DealsContainer = ({ user, loggedin }) => {
       <br></br>
       <CardGroup>
         {Object.keys(games).length === 0 ? (
-          <h1 style={{ margin: "auto" }}>TEST</h1>
-        ) : (
+          null  ) : (
           games.map((game, id) => (
             <GameCards
               key={id}
