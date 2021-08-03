@@ -10,11 +10,7 @@ export const DealsContainer = ({ user, loggedin }) => {
     setSearch(e.target.value);
   };
 
-  const createAlert = () => {
-    console.log("create alert = " + user);
-  };
-
-  const submitGameSearch = (e) => {
+  const submitGameSearch = (e) => {   // Fetch games
     e.preventDefault();
     const search = e.target.firstElementChild.value;
     fetch(
@@ -61,7 +57,6 @@ export const DealsContainer = ({ user, loggedin }) => {
               title={game.external}
               gameID={game.gameID}
               user={user}
-              createAlert={createAlert}
               loggedin={loggedin}
               price={game.cheapest}
               cheapestID={game.cheapestDealID}

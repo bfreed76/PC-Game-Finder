@@ -25,7 +25,6 @@ export const GameCards = ({
   const [show, setShow] = useState(false);
   const [alertName, setAlertName] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -60,7 +59,7 @@ export const GameCards = ({
       );
   };
 
-  return (    // Game card and create alert model
+  return (                                // Game card and create alert model
     <div>
       <Card style={{ width: "18rem", height: "25rem" }}>
         <Card.Img
@@ -87,7 +86,7 @@ export const GameCards = ({
           </>
         )}
         <Card.Body>
-          <Card.Link href={dealLink}>Link to Deal</Card.Link>
+          <Card.Link onClick={() => window.open(dealLink)}>Link to Deal</Card.Link>
         </Card.Body>
       </Card>
 
