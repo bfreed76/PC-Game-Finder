@@ -11,7 +11,7 @@ export const Navigation = ({ loggedin, handleLogout }) => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="deals">Search Games</Nav.Link>
-              <Nav.Link href="alerts">Alerts</Nav.Link>
+              <Nav.Link href="alerts_page">Alerts</Nav.Link>
             </Nav>
             <Nav>
               {loggedin ? (

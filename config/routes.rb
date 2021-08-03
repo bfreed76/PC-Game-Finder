@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  ####! Check controller methods before limiting routes
   resources :users, only: [:index, :show] 
   resources :alerts
   resources :games, only: [:index, :show]

@@ -60,7 +60,7 @@ function App() {
             <Route exact path="/register">
               <Register setUser={setUser} setLoggedin={setLoggedin} />
             </Route>
-            <Route exact path="/alerts">
+            <Route exact path="/alerts_page">
               {loggedin ? (
                 <AlertsContainer user={user} />
               ) : (
