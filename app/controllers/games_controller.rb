@@ -29,4 +29,8 @@ class GamesController < ApplicationController
         params[:alerts][0].permit(:name, :price, :user_id, :title)
     end
 
+    def render_not_found_response
+        render json: { error: "Game not found" }, status: :not_found
+    end
+
 end

@@ -43,4 +43,8 @@ class AlertsController < ApplicationController
         params.permit(:name, :price, :game_id, :title)
     end
 
+    def render_not_found_response
+        render json: { error: "Alert not found" }, status: :not_found
+    end
+
 end

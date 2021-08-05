@@ -1,5 +1,10 @@
 # Project Template: React/Rails API
 
+## To start this app locally
+
+From this folder (Phase-4-Project-PC-Gamefinder), enter 'rails s' from the terminal window to start the server. Then,
+enter npm start --prefix client to start the frontend server. 
+
 ## Description
 
 This project is scaffolded so that you can build a React frontend and Rails
