@@ -55,17 +55,17 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/login">
-              <Login setUser={setUser} setLoggedIn={setLoggedin} />
+              <Login setUser={setUser} setLoggedin={setLoggedin} />
             </Route>
             <Route exact path="/register">
               <Register setUser={setUser} setLoggedin={setLoggedin} />
             </Route>
             <Route exact path="/alerts_page">
-              {loggedin ? (
+              {/* {loggedin ? ( */}
                 <AlertsContainer user={user} />
-              ) : (
-                <Login setUser={setUser} setLoggedIn={setLoggedin} />
-              )}
+              // ) : (
+              //   <Login setUser={setUser} setLoggedIn={setLoggedin} />
+              // )}
             </Route>
             <Route exact path="/profile">
               {loggedin ? (

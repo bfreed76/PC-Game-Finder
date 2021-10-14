@@ -7,7 +7,7 @@ export const AlertsContainer = ({ user }) => {
   useEffect(() => fetchAlerts(), []);       // Retrieves alerts for logged in user
 
   const fetchAlerts = () => {
-    fetch("users/" + user.id + "/alerts")
+    fetch("alerts")
       .then((res) => res.json())
       .then((res) => setAlerts(res))
       .catch((err) => console.log("error = ", err));
