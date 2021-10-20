@@ -21,6 +21,19 @@ backend together, and easily deploy them to Heroku.
 
 [![React](https://img.shields.io/badge/-React-black?style=flat-square&logo=react)](https://reactjs.org/) [![ReactRouter](https://img.shields.io/badge/ReactRouter-4F545E?style=flat&logo=reactrouter)](https://reactrouter.com/) [![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-99bdee?style=flat-square&logo=postgresql)](https://www.postgresql.org/) [![Heroku](https://img.shields.io/badge/-Heroku-purple?style=flat-square&logo=heroku)](https://www.heroku.com/) [![Ruby](https://img.shields.io/badge/-Ruby-ff6666?style=flat-square&logo=ruby)](https://https://ruby-lang.org/) [![Rails](https://img.shields.io/badge/Rails-red?style=flat&logo=ruby-on-rails)](https://rubyonrails.org/) [![React-Bootstrap](https://img.shields.io/badge/React_Bootstrap-6C8FE3?style=flat&logo=bootstrap)](https://react-bootstrap.github.io/) 
 
+<p align="center">
+<img src="./client/public/pcscreen2.png" alt="pcscreen2">
+</p>
+
+<!-- CONTACT -->
+## Contact Me
+
+[![Linkedin Badge](https://img.shields.io/badge/-brintonfoyreed-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/brintonfoyreed/)](https://www.linkedin.com/in/brintonfoyreed/) [![Instagram Badge](https://img.shields.io/badge/-nigels_vacation-purple?style=flat-square&logo=instagram&logoColor=white&link=https://www.instagram.com/nigels_vacation/)](https://www.instagram.com/nigels_vacation/) [![Medium Badge](https://img.shields.io/badge/-brintonfoyreed-03a57a?style=flat-square&labelColor=000000&logo=Medium&link=https://brintonfoyreed.medium.com/)](https://brintonfoyreed.medium.com/)[ ![Gmail Badge](https://img.shields.io/badge/-brintonfoyreed@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:brintonfoyreed@gmail.com)](mailto:brintonfoyreed@gmail.com)
+
+Project Link: [PC Gamefinder](https://pc-gamefinder.herokuapp.com/)
+<a href="https://github.com/bfreed76"><strong>See more apps on my profile page »</strong></a>
+
+
 ## Requirements
 
 - Ruby 2.7.4
