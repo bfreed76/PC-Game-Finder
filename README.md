@@ -4,7 +4,7 @@ Find the best online deals for PC Games!
  [Use PC Gamefinder now!]("https://dashboard.heroku.com/apps/reddit-emotion-analyzer")
  
 <p align="center">
-<img src="./client/public/pcscreen1.jpg" alt="pcscreen1">
+<img src="./client/public/pcscreen1.png" alt="pcscreen1">
 </p>
 
 ## To start PC GameFinder locally
