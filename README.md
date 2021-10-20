@@ -1,6 +1,13 @@
-# Project Template: React/Rails API
+# PC GameFinder
+Find the best online deals for PC Games!
 
-## To start this app locally
+ [Use PC Gamefinder now!]("https://dashboard.heroku.com/apps/reddit-emotion-analyzer")
+ 
+<p align="center">
+<img src="./client/public/pcscreen1.jpg" alt="pcscreen1">
+</p>
+
+## To start PC GameFinder locally
 
 From this folder (Phase-4-Project-PC-Gamefinder), enter 'rails s' from the terminal window to start the server. Then,
 enter npm start --prefix client to start the frontend server. 
@@ -9,6 +16,10 @@ enter npm start --prefix client to start the frontend server.
 
 This project is scaffolded so that you can build a React frontend and Rails
 backend together, and easily deploy them to Heroku.
+
+### Built Using
+
+[![React](https://img.shields.io/badge/-React-black?style=flat-square&logo=react)](https://reactjs.org/) [![ReactRouter](https://img.shields.io/badge/ReactRouter-4F545E?style=flat&logo=reactrouter)](https://reactrouter.com/) [![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-99bdee?style=flat-square&logo=postgresql)](https://www.postgresql.org/) [![Heroku](https://img.shields.io/badge/-Heroku-purple?style=flat-square&logo=heroku)](https://www.heroku.com/) [![Ruby](https://img.shields.io/badge/-Ruby-ff6666?style=flat-square&logo=ruby)](https://https://ruby-lang.org/) [![Rails](https://img.shields.io/badge/Rails-red?style=flat&logo=ruby-on-rails)](https://rubyonrails.org/) [![React-Bootstrap](https://img.shields.io/badge/React_Bootstrap-6C8FE3?style=flat&logo=bootstrap)](https://react-bootstrap.github.io/) 
 
 ## Requirements
 
@@ -29,6 +40,7 @@ Then run:
 ```sh
 bundle install
 rails db:create
+rails db:seed
 npm install --prefix client
 ```
 
@@ -38,11 +50,6 @@ You can use the following commands to run the application:
 - `npm start --prefix client`: run the frontend on
   [http://localhost:4000](http://localhost:4000)
 - `rails start`: run the frontend and backend together with one command
-
-Make sure to also update this README to include documentation about
-your project. Here's a list of some [awesome readmes][] for inspiration.
-
-[awesome readmes]: https://github.com/matiassingers/awesome-readme
 
 ## Deploying
 
